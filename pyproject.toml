@@ -21,6 +21,7 @@ Issues = "https://github.com/MatthiasGi/directorium/issues"
 
 [project.optional-dependencies]
 test = ["pytest"]
+development = ["twine", "pre-commit"]
 
 [build-system]
 requires = ["hatchling"]

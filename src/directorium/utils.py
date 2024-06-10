@@ -1,5 +1,6 @@
 from datetime import date, datetime
 
+
 def normalize_date(date: date | datetime) -> date:
     return date.date() if isinstance(date, datetime) else date
 
@@ -11,4 +12,3 @@ def easter(year: int | date | datetime) -> date:
     e = (32 + 2 * (b % 4) + 2 * (c // 4) - d - (c % 4)) % 7
     f = d + e - 7 * ((a + 11 * d + 22 * e) // 451) + 114
     return date(year, f // 31, f % 31 + 1)
-

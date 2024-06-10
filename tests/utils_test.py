@@ -3,6 +3,7 @@ from unittest import TestCase
 
 from directorium import utils
 
+
 class TestUtils(TestCase):
 
     easter_dates = [
