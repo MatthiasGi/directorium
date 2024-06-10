@@ -1,0 +1,27 @@
+[project]
+name = "directorium"
+version = "0.0.1a1.dev1"
+description = "Wrapper for the public API of https://eucharistiefeier.de/lk/"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["catholic", "church", "eucharistiefeier", "liturgy", "mass"]
+
+[[project.authors]]
+name = "Matthias Gianfelice"
+email = "matthias@gianfelice.de"
+
+[project.urls]
+Repository = "https://github.com/MatthiasGi/directorium"
+Issues = "https://github.com/MatthiasGi/directorium/issues"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
