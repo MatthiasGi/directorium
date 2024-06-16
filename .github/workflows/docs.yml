@@ -22,7 +22,7 @@ jobs:
 
       - run: pip install -e .[development]
       # build your documentation into docs/.
-      - run: pdoc --docformat google -o docs/
+      - run: pdoc --docformat google -o docs/ src/directorium
 
       - uses: actions/upload-pages-artifact@v3
         with:
