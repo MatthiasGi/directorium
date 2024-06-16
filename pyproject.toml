@@ -1,6 +1,6 @@
 [project]
 name = "directorium"
-version = "0.0.1a1.dev1"
+version = "0.0.1-alpha"
 description = "Wrapper for the public API of https://eucharistiefeier.de/lk/"
 readme = "README.md"
 requires-python = ">=3.10"
