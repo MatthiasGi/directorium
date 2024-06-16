@@ -39,4 +39,4 @@ jobs:
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
-        repository-url: https://test.pypi.org/simple/
+        repository-url: https://test.pypi.org/legacy/
