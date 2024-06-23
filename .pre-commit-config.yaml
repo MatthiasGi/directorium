@@ -7,11 +7,11 @@ repos:
   - id: check-added-large-files
   - id: check-ast
   - id: check-builtin-literals
-  - id: check-docstring-first
   - id: check-executables-have-shebangs
   - id: check-json
   - id: check-shebang-scripts-are-executable
   - id: pretty-format-json
+    args: ["--autofix", "--no-sort-keys", "--no-ensure-ascii"]
   - id: check-merge-conflict
   - id: check-symlinks
   - id: check-toml
@@ -65,7 +65,7 @@ repos:
   - id: bandit
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.4.9
+  rev: v0.4.10
   hooks:
   - id: ruff
     args: [ --fix ]

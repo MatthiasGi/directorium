@@ -10,6 +10,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 keywords = ["catholic", "church", "eucharistiefeier", "liturgy", "mass"]
+dependencies = ["requests"]
 
 [[project.authors]]
 name = "Matthias Gianfelice"

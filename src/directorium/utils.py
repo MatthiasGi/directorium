@@ -5,16 +5,29 @@ Simple utility module for reused functions that don't fit into any other module.
 from datetime import date, datetime
 
 
-def normalize_date(date: date | datetime) -> date:
-    """Returns a date object from a date or datetime object.
+def normalize_date(year: date | datetime | int, month: int = 0, day: int = 0) -> date:
+    """Returns a date object from a date or datetime object or even numbers.
+
+    If a date or datetime object is passed, it is stripped of time information.
+    If only a year as number is passed, the month and day numbers are extracted
+    from the other arguments.
 
     Args:
-        date: The date or datetime object to normalize.
+        year (int | date | datetime): Either a date to check or the year if
+            month and day are also provided.
+        month (int, optional): If the year is a number, the month must also
+            be provided. Defaults to 0.
+        day (int, optional): If the year is a number, the day must also be
+            provided. Defaults to 0.
 
     Returns:
         The normalized date object, stripped of time information.
     """
-    return date.date() if isinstance(date, datetime) else date
+    if isinstance(year, datetime):
+        return year.date()
+    if isinstance(year, date):
+        return year
+    return date(year, month, day)
 
 def easter(year: int | date | datetime) -> date:
     """Calculates the date of Easter Sunday for a given year.

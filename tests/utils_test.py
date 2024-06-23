@@ -40,3 +40,8 @@ class TestUtils(TestCase):
     def test_normalize_date(self):
         self.assertEqual(utils.normalize_date(date(2020, 2, 29)), date(2020, 2, 29))
         self.assertEqual(utils.normalize_date(datetime(2020, 2, 29, 12, 3, 5)), date(2020, 2, 29))
+        self.assertEqual(utils.normalize_date(2020, 5, 23), date(2020, 5, 23))
+        with self.assertRaises(ValueError):
+            utils.normalize_date(2020)
+        with self.assertRaises(ValueError):
+            utils.normalize_date(2020, 5)
