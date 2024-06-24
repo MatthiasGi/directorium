@@ -7,7 +7,7 @@ from unittest import TestCase
 from directorium.api import Api, CacheApi, FileApi, RequestApi
 
 
-class Testapi(TestCase):
+class TestApi(TestCase):
 
     def test_request(self):
         with open("tests/data/2024.json", "r") as f:
