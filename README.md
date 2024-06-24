@@ -6,5 +6,6 @@ Major TODOs:
 - [x] Add documentation workflow
 - [x] Testpackaging
 - [x] Deployment pipelines
-- [ ] Add functionality
+- [x] Add functionality
+- [ ] Add factory methods
 - [ ] README

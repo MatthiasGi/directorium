@@ -1,5 +1,4 @@
-"""
-Module containing the Event class and associated data types.
+"""Module containing the Event class and associated data types.
 
 The event is a liturgical celebration with a date, title, comment, readings, and
 more. It defines the color of the day and the rank of the celebration as an enum
