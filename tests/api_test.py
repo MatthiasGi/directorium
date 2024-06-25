@@ -1,13 +1,29 @@
+import glob
 import json
 import os
 import tempfile
 from datetime import date
 from unittest import TestCase
 
+from platformdirs import user_data_dir
+
 from directorium.api import Api, CacheApi, FileApi, RequestApi
 
 
 class TestApi(TestCase):
+
+    def clearCache(self) -> None:
+        for f in glob.glob(f"{self.cache_dir}/*.json"):
+            os.remove(f)
+        if os.path.exists(self.cache_dir):
+            os.removedirs(self.cache_dir)
+
+    def setUp(self) -> None:
+        self.cache_dir = user_data_dir("directorium", False)
+        self.clearCache()
+
+    def tearDown(self) -> None:
+        self.clearCache()
 
     def test_request(self):
         with open("tests/data/2024.json", "r") as f:
@@ -65,6 +81,20 @@ class TestApi(TestCase):
                 actual = json.load(f)
                 self.assertEqual(actual, expected)
             actual = api.get_year(2025)
+            self.assertEqual(actual, expected)
+
+    def test_cache_without_dir(self):
+        self.assertFalse(os.path.exists(self.cache_dir))
+        self.assertFalse(os.path.exists(f"{self.cache_dir}/2024.json"))
+        CacheApi().get_year(2024)
+        self.assertTrue(os.path.exists(self.cache_dir))
+        self.assertTrue(os.path.exists(f"{self.cache_dir}/2024.json"))
+        with (
+            open("tests/data/2024.json", "r") as f,
+            open(f"{self.cache_dir}/2024.json", "r") as g,
+        ):
+            actual = json.load(g)
+            expected = json.load(f)
             self.assertEqual(actual, expected)
 
     def test_get_date(self):

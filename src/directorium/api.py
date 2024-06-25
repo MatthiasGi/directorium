@@ -14,6 +14,7 @@ from typing import Any, Dict, List, Mapping, cast
 from urllib.parse import urlencode
 
 import requests
+from platformdirs import user_data_dir
 
 from . import utils
 
@@ -245,16 +246,20 @@ class CacheApi(RequestApi):
             calendar is used. See the `kal`-parameter of the API.
     """
 
-    def __init__(self, base_path: str, calendar: str | None = None):
+    def __init__(self, base_path: str | None = None, calendar: str | None = None):
         """Creates an API-handler.
 
         Args:
-            base_path (str): The base path where the files are saved. In the
-                given directory, multiple JSON-files will be created.
+            base_path (str | None, optional): The base path where the files are
+                saved. In the given directory, multiple JSON-files will be
+                created. If no path is given, a temporary directory according to
+                the operating system is used. Defaults to None.
             calendar (str | None, optional): The regional calendar to use.
                 Defaults to None.
         """
         super().__init__(calendar)
+        if base_path is None:
+            base_path = user_data_dir("directorium", False, ensure_exists=True)
         self.base_path = base_path
 
     def get_year(self, year: int) -> ApiYear:

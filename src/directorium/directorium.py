@@ -122,11 +122,12 @@ class Directorium:
         return Directorium(FileApi(format_path))
 
     @staticmethod
-    def from_cache(base_path: str, calendar: str | None = None) -> "Directorium":
+    def from_cache(base_path: str | None = None, calendar: str | None = None) -> "Directorium":
         """Creates a Directorium instance with a `CacheApi` backend.
 
         Args:
-            base_path (str): The base path for the cache files.
+            base_path (str | None, optional): The base path for the cache files.
+                If None, the default folder defined in `CacheApi` is used.
             calendar (str | None, optional): The name of the calendar to use.
 
         Returns:

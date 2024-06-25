@@ -8,5 +8,5 @@ Major TODOs:
 - [x] Deployment pipelines
 - [x] Add functionality
 - [x] Add factory methods
-- [ ] Automatic cache directory
+- [x] Automatic cache directory
 - [ ] README
