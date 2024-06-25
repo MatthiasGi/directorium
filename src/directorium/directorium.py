@@ -94,3 +94,43 @@ class Directorium:
             return Season.EASTER
 
         return Season.ORDINARY
+
+    @staticmethod
+    def from_request(calendar: str | None = None) -> "Directorium":
+        """Creates a Directorium instance with a `RequestApi` backend.
+
+        Args:
+            calendar (str | None, optional): The name of the calendar to use.
+
+        Returns:
+            Directorium: The Directorium instance with a RequestApi backend.
+        """
+        from .api import RequestApi
+        return Directorium(RequestApi(calendar))
+
+    @staticmethod
+    def from_file(format_path: str) -> "Directorium":
+        """Creates a Directorium instance with a `FileApi` backend.
+
+        Args:
+            format_path (str): The format string for the file path.
+
+        Returns:
+            Directorium: The Directorium instance with a FileApi backend.
+        """
+        from .api import FileApi
+        return Directorium(FileApi(format_path))
+
+    @staticmethod
+    def from_cache(base_path: str, calendar: str | None = None) -> "Directorium":
+        """Creates a Directorium instance with a `CacheApi` backend.
+
+        Args:
+            base_path (str): The base path for the cache files.
+            calendar (str | None, optional): The name of the calendar to use.
+
+        Returns:
+            Directorium: The Directorium instance with a CacheApi backend.
+        """
+        from .api import CacheApi
+        return Directorium(CacheApi(base_path, calendar))

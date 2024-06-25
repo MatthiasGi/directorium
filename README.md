@@ -7,5 +7,6 @@ Major TODOs:
 - [x] Testpackaging
 - [x] Deployment pipelines
 - [x] Add functionality
-- [ ] Add factory methods
+- [x] Add factory methods
+- [ ] Automatic cache directory
 - [ ] README
