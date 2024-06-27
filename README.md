@@ -1,5 +1,5 @@
 [![Tests](https://github.com/matthiasgi/directorium/workflows/Testing%20code/badge.svg)](https://github.com/matthiasgi/directorium/actions?query=workflow:"Testing+code")
-[![Build documentation](https://github.com/matthiasgi/directorium/workflows/Build%20Documentation/badge.svg)](https://github.com/matthiasgi/directorium/actions?query=workflow:"Build+Documentation")
+[![Build documentation](https://github.com/MatthiasGi/directorium/actions/workflows/docs.yml/badge.svg)](https://github.com/MatthiasGi/directorium/actions/workflows/docs.yml)
 [![Publish Package](https://github.com/matthiasgi/directorium/workflows/Upload%20Python%20Package/badge.svg)](https://github.com/matthiasgi/directorium/actions?query=workflow:"Upload+Python+Package")
 
 [![GitHub release](https://img.shields.io/github/release/matthiasgi/directorium?include_prereleases=&sort=semver&color=blue)](https://github.com/matthiasgi/directorium/releases/)
