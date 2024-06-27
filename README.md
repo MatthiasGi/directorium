@@ -26,7 +26,21 @@ print(events)
 
 ## Documentation
 
-An automatically created documentation is available on [https://matthiasgi.github.io/directorium/](the GitHub Pages of this project).
+An automatically created documentation is available on [the GitHub Pages of this project](https://matthiasgi.github.io/directorium/).
+
+## Contributing
+You're more than invited to contribute to this project. Any kind of help is appreciated. Just open an issue or a pull request.
+
+1. Fork the project
+2. Add a python environment with `python -m venv .venv`
+3. Activate the environment with `source .venv/bin/activate`
+4. Install the development dependencies with `pip install -e .[development]`
+5. Install the pre-commit hooks with `pre-commit install`
+6. Create a new branch
+7. Make your changes (remember to add tests!) and commit them
+8. Install the test dependencies with `pip install -e .[test]`
+9. Run the tests with `pytest`
+10. Push your changes and open a pull request
 
 ## Acknowledgments
 Thanks a lot to the [Salesians of Don Bosco](https://www.donbosco.de/) for providing the API!

@@ -1,6 +1,6 @@
 [project]
 name = "directorium"
-version = "0.0.1-alpha"
+version = "0.1.0"
 description = "Wrapper for the public API of https://eucharistiefeier.de/lk/"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -19,6 +19,7 @@ email = "matthias@gianfelice.de"
 [project.urls]
 Repository = "https://github.com/MatthiasGi/directorium"
 Issues = "https://github.com/MatthiasGi/directorium/issues"
+Documentation = "https://matthiasgi.github.io/directorium/directorium.html"
 
 [project.optional-dependencies]
 test = ["pytest"]
