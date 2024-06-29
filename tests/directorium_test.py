@@ -45,3 +45,8 @@ class TestDirectorium(TestCase):
         self.assertIsInstance(directorium.api, CacheApi)
         self.assertEqual(directorium.api.base_path, "tests/data/")
         self.assertEqual(directorium.api.calendar, "koeln")
+
+    def tet_default_get_parameter_is_today(self):
+        directorium = Directorium.from_request("koeln")
+        self.assertEqual(directorium.get(), directorium.get(date.today()))
+        self.assertEqual(directorium.season(), directorium.season(date.today()))

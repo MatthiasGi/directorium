@@ -7,7 +7,7 @@ a specific date and to determine the season of the liturgical year.
 
 import enum
 from datetime import date, timedelta
-from typing import List
+from typing import List, Optional
 
 from . import utils
 from .api import Api
@@ -54,26 +54,32 @@ class Directorium:
         """
         self.api = api
 
-    def get(self, d: date) -> List[Event]:
+    def get(self, d: Optional[date] = None) -> List[Event]:
         """Retrieves a list of liturgical events for a specific date.
 
         Args:
-            d (date): The date for which to get the liturgical events.
+            d (Optional[date]): The date for which to get the liturgical events.
+                If None is provided, the current date is used. Defaults to None.
 
         Returns:
             List[Event]: List of liturgical events for the given date.
         """
+        if d is None:
+            d = date.today()
         return [Event.parse(e) for e in self.api.get_date(d)]
 
-    def season(self, d: date) -> Season:
+    def season(self, d: Optional[date] = None) -> Season:
         """Determines the season of the liturgical year for a specific date.
 
         Args:
-            d (date): The date for which to determine the season.
+            d (Optional[date]): The date for which to determine the season. If
+                None is provided, the current date is used. Defaults to None.
 
         Returns:
             Season: The season of the liturgical year for the given date.
         """
+        if d is None:
+            d = date.today()
         christmas = date(d.year, 12, 25)
         advent = christmas - timedelta(days=21 + christmas.isoweekday())
         if d >= advent:
