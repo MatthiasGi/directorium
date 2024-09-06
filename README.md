@@ -22,7 +22,7 @@ from directorium import Directorium
 
 directorium = Directorium.from_request()
 today = date.today()
-events = directorium.get_date(today)
+events = directorium.get(today)
 print(events)
 ```
 
