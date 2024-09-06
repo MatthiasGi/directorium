@@ -65,7 +65,7 @@ repos:
   - id: bandit
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.5.0
+  rev: v0.6.4
   hooks:
   - id: ruff
     args: [ --fix ]
@@ -76,7 +76,7 @@ repos:
   - id: isort
 
 - repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
-  rev: v0.3.3post1
+  rev: v0.4.0post1
   hooks:
   - id: pre-commit-update
     args: [--dry-run]

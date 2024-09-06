@@ -8,12 +8,12 @@ from directorium.event import Color, Event, Rank
 class TestEvent(TestCase):
 
     def setUp(self):
-        with open("tests/data/2024.json", "r") as f:
+        with open("tests/data/2022.json", "r") as f:
             self.data = json.load(f)["Zelebrationen"]
 
     def test_parse(self):
         expected = Event(
-            date=date(2024,1,1),
+            date=date(2022,1,1),
             title="1. Januar - Neujahr",
             comment="Hochfest der Gottesmutter Maria",
             lecture1="Num 6, 22-27",
