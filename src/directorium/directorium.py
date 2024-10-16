@@ -9,6 +9,8 @@ import enum
 from datetime import date, timedelta
 from typing import List, Optional
 
+from typing_extensions import deprecated
+
 from . import utils
 from .api import Api
 from .event import Event
@@ -68,7 +70,21 @@ class Directorium:
             d = date.today()
         return [Event.parse(e) for e in self.api.get_date(d)]
 
+    @deprecated("Use static method `get_season` instead.")
     def season(self, d: Optional[date] = None) -> Season:
+        """Determines the season of the liturgical year for a specific date.
+
+        Args:
+            d (Optional[date]): The date for which to determine the season. If
+                None is provided, the current date is used. Defaults to None.
+
+        Returns:
+            Season: The season of the liturgical year for the given date.
+        """
+        return Directorium.get_season(d)
+
+    @staticmethod
+    def get_season(d: Optional[date] = None) -> Season:
         """Determines the season of the liturgical year for a specific date.
 
         Args:

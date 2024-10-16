@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.6.0
+  rev: v5.0.0
   hooks:
   - id: check-added-large-files
   - id: check-ast
@@ -60,12 +60,12 @@ repos:
   - id: rm-unneeded-f-str
 
 - repo: https://github.com/PyCQA/bandit
-  rev: '1.7.9'
+  rev: '1.7.10'
   hooks:
   - id: bandit
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.6.4
+  rev: v0.6.9
   hooks:
   - id: ruff
     args: [ --fix ]
@@ -76,7 +76,7 @@ repos:
   - id: isort
 
 - repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
-  rev: v0.4.0post1
+  rev: v0.5.1post1
   hooks:
   - id: pre-commit-update
     args: [--dry-run]

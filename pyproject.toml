@@ -1,6 +1,6 @@
 [project]
 name = "directorium"
-version = "0.1.2"
+version = "0.2.0"
 description = "Wrapper for the public API of https://eucharistiefeier.de/lk/"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -10,7 +10,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 keywords = ["catholic", "church", "eucharistiefeier", "liturgy", "mass"]
-dependencies = ["requests", "platformdirs"]
+dependencies = ["requests", "platformdirs", "typing-extensions"]
 
 [[project.authors]]
 name = "Matthias Gianfelice"

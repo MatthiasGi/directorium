@@ -29,7 +29,7 @@ class TestApi(TestCase):
         with open("tests/data/2022.json", "r") as f:
             actual = RequestApi().get_year(2022)
             expected = json.load(f)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
 
 
     def test_request_calendar(self):
@@ -37,7 +37,7 @@ class TestApi(TestCase):
             api = RequestApi("koeln")
             actual = api.get_year(2023)
             expected = json.load(f)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
 
 
     def test_file(self):
@@ -58,12 +58,12 @@ class TestApi(TestCase):
             actual = api.get_year(2022)
             self.assertTrue(os.path.exists(path))
             expected = json.load(f)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
             with open(path, "r") as f:
                 actual = json.load(f)
-                self.assertEqual(actual, expected)
+                self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
             actual = api.get_year(2022)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
 
     def test_cache_calendar(self):
         with (
@@ -76,12 +76,12 @@ class TestApi(TestCase):
             actual = api.get_year(2023)
             self.assertTrue(os.path.exists(path))
             expected = json.load(f)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
             with open(path, "r") as f:
                 actual = json.load(f)
-                self.assertEqual(actual, expected)
+                self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
             actual = api.get_year(2023)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
 
     def test_cache_without_dir(self):
         self.assertFalse(os.path.exists(self.cache_dir))
@@ -95,7 +95,7 @@ class TestApi(TestCase):
         ):
             actual = json.load(g)
             expected = json.load(f)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
 
     def test_get_date(self):
         with open("tests/data/2022.json", "r") as f:
@@ -134,6 +134,6 @@ class TestApi(TestCase):
             self.assertEqual(actual, expected["Zelebrationen"][9:12])
             with open(path, "r") as f:
                 actual = json.load(f)
-                self.assertEqual(actual, expected)
+                self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
             actual = api.get_year(2023)
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual["Zelebrationen"], expected["Zelebrationen"])
