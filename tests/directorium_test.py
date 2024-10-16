@@ -29,10 +29,20 @@ class TestDirectorium(TestCase):
 
     def test_season(self):
         directorium = Directorium(self.api)
-        self.assertEqual(directorium.season(date(2022, 1, 1)), Season.CHRISTMAS)
-        self.assertEqual(directorium.season(date(2022, 2, 5)), Season.ORDINARY)
-        self.assertEqual(directorium.season(date(2022, 3, 21)), Season.LENT)
-        self.assertEqual(directorium.season(date(2022, 4, 18)), Season.EASTER)
+        with self.assertWarns(DeprecationWarning):
+            self.assertEqual(directorium.season(date(2022, 1, 1)), Season.CHRISTMAS)
+        with self.assertWarns(DeprecationWarning):
+            self.assertEqual(directorium.season(date(2022, 2, 5)), Season.ORDINARY)
+        with self.assertWarns(DeprecationWarning):
+            self.assertEqual(directorium.season(date(2022, 3, 21)), Season.LENT)
+        with self.assertWarns(DeprecationWarning):
+            self.assertEqual(directorium.season(date(2022, 4, 18)), Season.EASTER)
+
+    def test_get_season(self):
+        self.assertEqual(Directorium.get_season(date(2022, 1, 1)), Season.CHRISTMAS)
+        self.assertEqual(Directorium.get_season(date(2022, 2, 5)), Season.ORDINARY)
+        self.assertEqual(Directorium.get_season(date(2022, 3, 21)), Season.LENT)
+        self.assertEqual(Directorium.get_season(date(2022, 4, 18)), Season.EASTER)
 
     def test_factory_methods(self):
         directorium = Directorium.from_request("koeln")
